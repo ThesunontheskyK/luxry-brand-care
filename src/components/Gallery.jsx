@@ -56,6 +56,7 @@ export default function Gallery() {
                   transition={{ duration: 1.2, ease: "easeInOut" }}
                   className="absolute inset-0 w-full h-full object-cover"
                   alt={`Gallery slide ${currentIndex + 1}`}
+                  loading="lazy"
                 />
               </AnimatePresence>
               

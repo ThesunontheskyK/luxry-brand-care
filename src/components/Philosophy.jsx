@@ -19,6 +19,7 @@ export default function Philosophy() {
               src="https://images.unsplash.com/photo-1590548784585-643d2b9f2924?auto=format&fit=crop&w=1000&q=80" 
               alt="Artisan working on leather" 
               className="w-full h-full object-cover grayscale-[50%] hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
+              loading="lazy"
             />
           </div>
         </motion.div>

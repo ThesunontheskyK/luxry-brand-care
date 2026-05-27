@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 
 import Hero from './components/Hero';
-import Stats from './components/Stats';
-import Services from './components/Services';
-import Philosophy from './components/Philosophy';
-import Gallery from './components/Gallery';
-import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
-
 import Navbar from './components/Navbar';
+
+const Stats = lazy(() => import('./components/Stats'));
+const Services = lazy(() => import('./components/Services'));
+const Philosophy = lazy(() => import('./components/Philosophy'));
+const Gallery = lazy(() => import('./components/Gallery'));
+const ContactForm = lazy(() => import('./components/ContactForm'));
+const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
   return (
@@ -16,13 +16,17 @@ function App() {
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <Stats />
-        <Services />
-        <Gallery />
-        <Philosophy />
-        <ContactForm />
+        <Suspense fallback={<div className="min-h-[200px] flex items-center justify-center bg-[#FAF9F6]"></div>}>
+          <Stats />
+          <Services />
+          <Gallery />
+          <Philosophy />
+          <ContactForm />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="min-h-[100px] bg-[#1a1a1a]"></div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
